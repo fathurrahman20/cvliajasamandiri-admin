@@ -1,5 +1,5 @@
 import APIClient, { ErrorResponse, FetchResponse } from "@/service/api-client";
-import { RegulationDetailData } from "@/types";
+import { RegulationDetailType } from "@/types";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
@@ -13,7 +13,7 @@ interface RegulationResponse {
   description: string;
 }
 
-const apiClient = new APIClient<RegulationDetailData>("/regulation");
+const apiClient = new APIClient<RegulationDetailType>("/regulation");
 
 export const useGetRegulation = () =>
   useQuery({

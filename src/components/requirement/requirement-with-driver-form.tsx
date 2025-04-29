@@ -1,6 +1,4 @@
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -10,27 +8,30 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { FooterDetailType } from "@/types";
+import { Textarea } from "@/components/ui/textarea";
+import { useUpdateRequirementWithDriver } from "@/hooks/useRequirement";
+import { RequirementWithDriverDetailType } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
-import { useUpdateFooter } from "@/hooks/useFooter";
-
-const formFooterSchema = z.object({
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+//
+const formRequirementWithDriverSchema = z.object({
   description: z
     .string()
-    .min(5, { message: "Description must be at least 5 characters." })
-    .max(255, { message: "Description must be at most 255 characters." }),
+    .min(5, { message: "Description must be at least 5 characters." }),
 });
 
-interface FooterFormProps {
-  data: FooterDetailType | undefined;
+interface RequirementWithDriverFormProps {
+  data: RequirementWithDriverDetailType | undefined;
 }
 
-export default function FooterForm({ data }: FooterFormProps) {
-  const { mutate, isPending } = useUpdateFooter();
-  const form = useForm<z.infer<typeof formFooterSchema>>({
-    resolver: zodResolver(formFooterSchema),
+export default function RequirementWithDriverForm({
+  data,
+}: RequirementWithDriverFormProps) {
+  const { mutate, isPending } = useUpdateRequirementWithDriver();
+  const form = useForm<z.infer<typeof formRequirementWithDriverSchema>>({
+    resolver: zodResolver(formRequirementWithDriverSchema),
     defaultValues: {
       description: data?.description ? data?.description : "",
     },
@@ -44,7 +45,7 @@ export default function FooterForm({ data }: FooterFormProps) {
     }
   }, [data, form]);
 
-  function onSubmit(values: z.infer<typeof formFooterSchema>) {
+  function onSubmit(values: z.infer<typeof formRequirementWithDriverSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     const data = {
@@ -67,10 +68,17 @@ export default function FooterForm({ data }: FooterFormProps) {
               <FormItem>
                 <FormLabel>Description</FormLabel>
                 <FormControl>
-                  <Input placeholder="CV Lia Jasa Mandiri" {...field} />
+                  <Textarea
+                    placeholder="E-Tilang tanggung jawab Penyewa.."
+                    {...field}
+                  />
                 </FormControl>
                 <FormDescription className="text-start">
-                  Contoh: © 2025 Lia Jasa Mandiri - Solusi Transportasi
+                  Contoh: Kirim by WA Foto KTP Penyewa * Menginformasikan titik
+                  jemput, etc
+                </FormDescription>
+                <FormDescription className="text-start">
+                  Note: Pisahkan dengan karaketer *
                 </FormDescription>
                 <FormMessage className="text-start" />
               </FormItem>

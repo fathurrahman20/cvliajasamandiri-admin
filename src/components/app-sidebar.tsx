@@ -113,7 +113,7 @@ const data = {
       items: [
         {
           title: "Persyaratan Rental",
-          url: "#",
+          url: "/requirement",
         },
         {
           title: "Peraturan Rental",

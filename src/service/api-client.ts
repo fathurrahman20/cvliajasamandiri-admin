@@ -53,4 +53,10 @@ export default class APIClient<T> {
       .delete(this.endpoint, config)
       .then((response) => response.data);
   };
+
+  deleteById = (id: string | number, config?: AxiosRequestConfig) => {
+    return axiosInstance
+      .delete(`${this.endpoint}/${id}`, config)
+      .then((response) => response.data);
+  };
 }

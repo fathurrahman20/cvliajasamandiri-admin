@@ -1,6 +1,7 @@
 import DashboardPage from "@/pages/dashboard";
 import FooterPage from "@/pages/footer";
 import RegulationPage from "@/pages/regulation";
+import RequirementPage from "@/pages/requirement";
 import SigninPage from "@/pages/signin";
 import { createBrowserRouter } from "react-router";
 
@@ -20,6 +21,10 @@ const routerList = createBrowserRouter([
   {
     path: "/regulation",
     element: <RegulationPage />,
+  },
+  {
+    path: "/requirement",
+    element: <RequirementPage />,
   },
 ]);
 

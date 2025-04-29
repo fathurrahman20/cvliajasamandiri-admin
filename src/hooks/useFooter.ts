@@ -1,5 +1,5 @@
 import APIClient, { ErrorResponse, FetchResponse } from "@/service/api-client";
-import { FooterDetailData } from "@/types";
+import { FooterDetailType } from "@/types";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
@@ -13,7 +13,7 @@ interface FooterResponse {
   description: string;
 }
 
-const apiClient = new APIClient<FooterDetailData>("/footer");
+const apiClient = new APIClient<FooterDetailType>("/footer");
 
 export const useGetFooter = () =>
   useQuery({
