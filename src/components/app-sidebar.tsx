@@ -117,7 +117,7 @@ const data = {
         },
         {
           title: "Peraturan Rental",
-          url: "#",
+          url: "/regulation",
         },
       ],
     },
@@ -153,7 +153,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

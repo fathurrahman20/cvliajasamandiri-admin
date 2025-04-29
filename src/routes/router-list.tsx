@@ -1,5 +1,6 @@
 import DashboardPage from "@/pages/dashboard";
 import FooterPage from "@/pages/footer";
+import RegulationPage from "@/pages/regulation";
 import SigninPage from "@/pages/signin";
 import { createBrowserRouter } from "react-router";
 
@@ -15,6 +16,10 @@ const routerList = createBrowserRouter([
   {
     path: "/footer",
     element: <FooterPage />,
+  },
+  {
+    path: "/regulation",
+    element: <RegulationPage />,
   },
 ]);
 
