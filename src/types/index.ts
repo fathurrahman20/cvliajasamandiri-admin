@@ -28,3 +28,9 @@ export type RequirementNoDriverDetailType = {
   title: string;
   description: string;
 };
+
+export type OurServiceDetailType = {
+  id: number;
+  title: string;
+  description: string;
+};
