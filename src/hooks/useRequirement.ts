@@ -1,6 +1,7 @@
 import APIClient, { ErrorResponse, FetchResponse } from "@/service/api-client";
 import {
   RequirementNoDriverDetailType,
+  RequirementNoteDetailType,
   RequirementWithDriverDetailType,
 } from "@/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -175,3 +176,58 @@ export const useDeleteRequirementNoDriver = () => {
   });
 };
 /* END: Requirement No Driver */
+
+/* START: Requirement With Driver */
+interface RequirementNoteRequest {
+  id: number;
+  description: string;
+}
+interface RequirementNoteResponse {
+  id: number;
+  description: string;
+}
+
+const apiClientRequirementNote = new APIClient<RequirementNoteDetailType>(
+  "/requirement-note"
+);
+
+// Get Requirement Detail with Driver
+export const useGetRequirementNote = () =>
+  useQuery({
+    queryKey: ["requirement-with-driver", 1],
+    queryFn: () => {
+      return apiClientRequirementNote.get(1, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    },
+  });
+
+// Update Requirement With Driver
+const apiClientRequirementNoteUpdate = new APIClient<RequirementNoteResponse>(
+  "/requirement-note"
+);
+export const useUpdateRequirementNote = () => {
+  return useMutation<
+    FetchResponse<RequirementNoteResponse>,
+    AxiosError<ErrorResponse>,
+    RequirementNoteRequest
+  >({
+    mutationFn: (data: RequirementNoteRequest) => {
+      return apiClientRequirementNoteUpdate.patch(data.id, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
+    },
+    onSuccess: () => {
+      toast.success("Updated requirement with driver successfully");
+    },
+    onError: (error) => {
+      toast.error(error.response?.data.message ?? "update failed");
+    },
+  });
+};
+/* END: Requirement With Driver */

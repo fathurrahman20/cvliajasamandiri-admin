@@ -13,6 +13,11 @@ export type RequirementWithDriverDetailType = {
   description: string;
 };
 
+export type RequirementNoteDetailType = {
+  id: string;
+  description: string;
+};
+
 export type CreateRequirementNoDriverDetailType = {
   title: string;
   description: string;
