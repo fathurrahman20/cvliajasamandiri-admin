@@ -1,3 +1,4 @@
+import ProtectedRoute from "@/components/protected-route";
 import DashboardPage from "@/pages/dashboard";
 import FooterPage from "@/pages/footer";
 import RegulationPage from "@/pages/regulation";
@@ -8,7 +9,11 @@ import { createBrowserRouter } from "react-router";
 const routerList = createBrowserRouter([
   {
     path: "/",
-    element: <DashboardPage />,
+    element: (
+      <ProtectedRoute>
+        <DashboardPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/sign-in",
@@ -16,15 +21,27 @@ const routerList = createBrowserRouter([
   },
   {
     path: "/footer",
-    element: <FooterPage />,
+    element: (
+      <ProtectedRoute>
+        <FooterPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/regulation",
-    element: <RegulationPage />,
+    element: (
+      <ProtectedRoute>
+        <RegulationPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/requirement",
-    element: <RequirementPage />,
+    element: (
+      <ProtectedRoute>
+        <RequirementPage />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
