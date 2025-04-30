@@ -7,7 +7,7 @@ import { createBrowserRouter } from "react-router";
 
 const routerList = createBrowserRouter([
   {
-    path: "/dashboard",
+    path: "/",
     element: <DashboardPage />,
   },
   {

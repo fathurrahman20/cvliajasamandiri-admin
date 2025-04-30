@@ -40,7 +40,7 @@ export function NavMain({
     <SidebarGroup>
       {/* <SidebarGroupLabel>Platform</SidebarGroupLabel> */}
       <SidebarMenu>
-        <Link to="/dashboard">
+        <Link to="/">
           <SidebarMenuItem>
             <SidebarMenuButton tooltip="Dashboard">
               <LayoutDashboardIcon />

@@ -36,7 +36,7 @@ export default function useSignIn() {
     onSuccess: (data) => {
       setUser(data.data);
       toast.success("Login success");
-      navigate("/dashboard", { replace: true });
+      navigate("/");
     },
     onError: (error) => {
       toast.error(error.response?.data.message ?? "Login failed");
