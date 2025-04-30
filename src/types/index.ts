@@ -40,3 +40,15 @@ export type OurAdvantageDetailType = {
   title: string;
   description: string;
 };
+
+export type AboutCompanyDetailType = {
+  id: number;
+  description: string;
+  // imageUrl?: string;
+  vision: string;
+  mission: string;
+  address: string;
+  phone: string;
+  email: string;
+  website: string;
+};

@@ -1,14 +1,14 @@
 import {
   AudioWaveform,
-  BookOpen,
-  Bot,
+  BookOpenText,
+  Building2,
   Command,
   Frame,
   GalleryVerticalEnd,
+  Home,
   Map,
   PieChart,
   Settings2,
-  SquareTerminal,
 } from "lucide-react";
 import * as React from "react";
 
@@ -51,7 +51,7 @@ const data = {
     {
       title: "Home",
       url: "#",
-      icon: SquareTerminal,
+      icon: Home,
       isActive: true,
       items: [
         {
@@ -75,7 +75,7 @@ const data = {
     {
       title: "Katalog",
       url: "#",
-      icon: Bot,
+      icon: BookOpenText,
       items: [
         {
           title: "Brand",
@@ -90,11 +90,11 @@ const data = {
     {
       title: "Tentang Kami",
       url: "#",
-      icon: BookOpen,
+      icon: Building2,
       items: [
         {
           title: "Profil Perusahaan",
-          url: "#",
+          url: "/about-us",
         },
         {
           title: "Layanan Kami",
@@ -144,14 +144,14 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarContent>
-        <NavMain items={data.navMain} />
-        {/* <NavProjects projects={data.projects} /> */}
-      </SidebarContent>
       <SidebarHeader>
         {/* <TeamSwitcher teams={data.teams} /> */}
         <ModeToggle />
       </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+        {/* <NavProjects projects={data.projects} /> */}
+      </SidebarContent>
       <SidebarFooter>
         <NavUser />
       </SidebarFooter>
