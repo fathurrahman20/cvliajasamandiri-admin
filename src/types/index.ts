@@ -52,3 +52,9 @@ export type AboutCompanyDetailType = {
   email: string;
   website: string;
 };
+
+export type HeroDetailType = {
+  id: string;
+  title: string;
+  description: string;
+};

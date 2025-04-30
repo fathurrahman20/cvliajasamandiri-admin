@@ -56,7 +56,7 @@ const data = {
       items: [
         {
           title: "Hero Section",
-          url: "#",
+          url: "/hero",
         },
         {
           title: "FAQ",

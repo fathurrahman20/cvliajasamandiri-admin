@@ -2,6 +2,7 @@ import ProtectedRoute from "@/components/protected-route";
 import AboutCompanyPage from "@/pages/company-about";
 import DashboardPage from "@/pages/dashboard";
 import FooterPage from "@/pages/footer";
+import HeroPage from "@/pages/hero";
 import OurAdvantagePage from "@/pages/our-advantage";
 import OurServicePage from "@/pages/our-service";
 import RegulationPage from "@/pages/regulation";
@@ -67,6 +68,14 @@ const routerList = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <AboutCompanyPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/hero",
+    element: (
+      <ProtectedRoute>
+        <HeroPage />
       </ProtectedRoute>
     ),
   },
