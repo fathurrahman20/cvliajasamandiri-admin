@@ -1,4 +1,4 @@
-import { OurServiceDetailType } from "@/types";
+import { OurAdvantageDetailType } from "@/types";
 import {
   DialogHeader,
   DialogTitle,
@@ -6,14 +6,14 @@ import {
 } from "@/components/ui/dialog";
 
 interface Props {
-  initialData?: OurServiceDetailType;
+  initialData?: OurAdvantageDetailType;
 }
 
-export default function DialogOurServiceFormHeader({ initialData }: Props) {
+export default function DialogOurAdvantageFormHeader({ initialData }: Props) {
   return (
     <DialogHeader>
       <DialogTitle>
-        {initialData ? "Edit Our Service" : "Add Our Service"}
+        {initialData ? "Edit Our Advantage" : "Add Our Advantage"}
       </DialogTitle>
       <DialogDescription>
         {initialData ? "Edit " : "Add "} Our Service. Click save when you're

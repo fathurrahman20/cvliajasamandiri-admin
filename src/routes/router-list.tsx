@@ -1,6 +1,7 @@
 import ProtectedRoute from "@/components/protected-route";
 import DashboardPage from "@/pages/dashboard";
 import FooterPage from "@/pages/footer";
+import OurAdvantagePage from "@/pages/our-advantage";
 import OurServicePage from "@/pages/our-service";
 import RegulationPage from "@/pages/regulation";
 import RequirementPage from "@/pages/requirement";
@@ -49,6 +50,14 @@ const routerList = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <OurServicePage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/our-advantage",
+    element: (
+      <ProtectedRoute>
+        <OurAdvantagePage />
       </ProtectedRoute>
     ),
   },

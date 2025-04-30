@@ -102,7 +102,7 @@ const data = {
         },
         {
           title: "Keunggulan Kami",
-          url: "#",
+          url: "/our-advantage",
         },
       ],
     },
@@ -144,14 +144,14 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        {/* <TeamSwitcher teams={data.teams} /> */}
-        <ModeToggle />
-      </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
+      <SidebarHeader>
+        {/* <TeamSwitcher teams={data.teams} /> */}
+        <ModeToggle />
+      </SidebarHeader>
       <SidebarFooter>
         <NavUser />
       </SidebarFooter>

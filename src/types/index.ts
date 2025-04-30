@@ -34,3 +34,9 @@ export type OurServiceDetailType = {
   title: string;
   description: string;
 };
+
+export type OurAdvantageDetailType = {
+  id: number;
+  title: string;
+  description: string;
+};
