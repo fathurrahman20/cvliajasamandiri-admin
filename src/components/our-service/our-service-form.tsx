@@ -21,7 +21,7 @@ export default function OurServiceTable({ data }: OurServiceTableProps) {
                 <th
                   scope="col"
                   className="relative isolate py-3.5 pr-3 text-left text-sm font-semibold">
-                  ID
+                  No
                   <div className="absolute inset-y-0 right-full -z-10 w-screen border-b border-b-gray-200" />
                   <div className="absolute inset-y-0 left-0 -z-10 w-screen border-b border-b-gray-200" />
                 </th>
@@ -41,10 +41,10 @@ export default function OurServiceTable({ data }: OurServiceTableProps) {
               </tr>
             </thead>
             <tbody>
-              {data?.map((item) => (
+              {data?.map((item, index) => (
                 <tr key={item.id}>
                   <td className="relative py-4 pr-3 text-sm font-medium">
-                    {item.id}
+                    {index + 1}
                     <div className="absolute right-full bottom-0 h-px w-screen bg-gray-100" />
                     <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />
                   </td>

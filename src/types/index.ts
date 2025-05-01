@@ -64,3 +64,8 @@ export type ButtomDetailType = {
   title: string;
   description: string;
 };
+export type FaqDetailType = {
+  id: number;
+  question: string;
+  answer: string;
+};

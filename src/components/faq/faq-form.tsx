@@ -1,17 +1,17 @@
-import { OurAdvantageDetailType } from "@/types";
-import EditOurAdvantage from "./modal-add-edit-our-advantage";
-import AddOurAdvantage from "./modal-add-edit-our-advantage";
-import DeleteOurAdvantage from "./dialog-delete-our-advantage";
+import { FaqDetailType } from "@/types";
+import EditFaq from "./modal-add-edit-faq";
+import AddFaq from "./modal-add-edit-faq";
+import DeleteFaq from "./dialog-delete-faq";
 
-interface OurAdvantageTableProps {
-  data: OurAdvantageDetailType[] | undefined;
+interface FaqTableProps {
+  data: FaqDetailType[] | undefined;
 }
 
-export default function OurAdvantageTable({ data }: OurAdvantageTableProps) {
+export default function FaqTable({ data }: FaqTableProps) {
   return (
     <div>
       <div className="mt-4 sm:mt-0 sm:flex-none">
-        <AddOurAdvantage />
+        <AddFaq />
       </div>
       <div className="mt-5 flow-root overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -28,12 +28,12 @@ export default function OurAdvantageTable({ data }: OurAdvantageTableProps) {
                 <th
                   scope="col"
                   className="px-3 py-3.5 text-left text-sm font-semibold sm:table-cell">
-                  Title
+                  Question
                 </th>
                 <th
                   scope="col"
                   className="hidden px-3 py-3.5 text-left text-sm font-semibold md:table-cell">
-                  Description
+                  Answer
                 </th>
                 <th scope="col" className="relative py-3.5 pl-3">
                   <span className="sr-only">Edit</span>
@@ -49,15 +49,15 @@ export default function OurAdvantageTable({ data }: OurAdvantageTableProps) {
                     <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />
                   </td>
                   <td className="px-3 py-4 text-sm sm:table-cell">
-                    {item.title}
+                    {item.question}
                   </td>
                   <td className="hidden px-3 py-4 text-sm md:table-cell">
-                    {item.description}
+                    {item.answer}
                   </td>
                   <td className="relative py-4 pl-3 text-right text-sm font-medium">
                     <div className="flex flex-row gap-x-2">
-                      <EditOurAdvantage initialData={item} />
-                      <DeleteOurAdvantage id={item.id} />
+                      <EditFaq initialData={item} />
+                      <DeleteFaq id={item.id} />
                     </div>
                   </td>
                 </tr>

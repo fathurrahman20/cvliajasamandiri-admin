@@ -60,11 +60,11 @@ const data = {
         },
         {
           title: "FAQ",
-          url: "#",
+          url: "/faq",
         },
         {
           title: "Bottom Section",
-          url: "/buttom",
+          url: "/bottom",
         },
         {
           title: "Footer",

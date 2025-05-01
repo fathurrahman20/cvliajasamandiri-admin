@@ -1,8 +1,8 @@
-import ButtomForm from "@/components/buttom/buttom-form";
+import ButtomForm from "@/components/bottom/bottom-form";
 import { useGetButtom } from "@/hooks/useButtom";
 import Layout from "@/layout";
 
-export default function ButtomPage() {
+export default function BottomPage() {
   const { data } = useGetButtom();
   console.log(`Data Buttom: ${data}`);
   return (
