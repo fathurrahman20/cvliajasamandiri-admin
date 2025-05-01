@@ -52,7 +52,7 @@ const data = {
       title: "Home",
       url: "#",
       icon: Home,
-      isActive: true,
+      // isActive: true,
       items: [
         {
           title: "Hero Section",
@@ -79,7 +79,7 @@ const data = {
       items: [
         {
           title: "Brand",
-          url: "#",
+          url: "/brand",
         },
         {
           title: "Mobil",

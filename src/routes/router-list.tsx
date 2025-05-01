@@ -11,6 +11,7 @@ import RegulationPage from "@/pages/regulation";
 import RequirementPage from "@/pages/requirement";
 import SigninPage from "@/pages/signin";
 import { createBrowserRouter } from "react-router";
+import BrandPage from "@/pages/brand";
 
 const routerList = createBrowserRouter([
   {
@@ -94,6 +95,14 @@ const routerList = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <FaqPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/brand",
+    element: (
+      <ProtectedRoute>
+        <BrandPage />
       </ProtectedRoute>
     ),
   },
