@@ -1,4 +1,5 @@
 import ProtectedRoute from "@/components/protected-route";
+import ButtomPage from "@/pages/buttom";
 import AboutCompanyPage from "@/pages/company-about";
 import DashboardPage from "@/pages/dashboard";
 import FooterPage from "@/pages/footer";
@@ -76,6 +77,14 @@ const routerList = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <HeroPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/buttom",
+    element: (
+      <ProtectedRoute>
+        <ButtomPage />
       </ProtectedRoute>
     ),
   },

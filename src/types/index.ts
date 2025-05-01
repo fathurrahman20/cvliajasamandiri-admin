@@ -58,3 +58,9 @@ export type HeroDetailType = {
   title: string;
   description: string;
 };
+
+export type ButtomDetailType = {
+  id: string;
+  title: string;
+  description: string;
+};

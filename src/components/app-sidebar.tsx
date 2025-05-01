@@ -64,7 +64,7 @@ const data = {
         },
         {
           title: "Bottom Section",
-          url: "#",
+          url: "/buttom",
         },
         {
           title: "Footer",
