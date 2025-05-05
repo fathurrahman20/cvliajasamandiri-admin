@@ -108,4 +108,17 @@ export const useDeleteBrand = () => {
     },
   });
 };
+
+// get detail brand
+export const useGetBrandDetail = (id: number) =>
+  useQuery({
+    queryKey: ["brand-detail", id],
+    queryFn: () => {
+      return apiClientBrand.get(id, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    },
+  });
 /* END: Brand */

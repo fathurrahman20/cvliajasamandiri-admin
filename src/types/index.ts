@@ -80,12 +80,34 @@ export type CarDetailType = {
   id: number;
   name: string;
   // imageId: string;
+  imageId: string;
   imageUrl: string;
   brandId: number;
   priceFullDay: number;
   priceHalfDay?: number;
 
-  year: string; // Tahun mobil dibuat
+  year: number; // Tahun mobil dibuat
+  fuelType: string; // Bensin, Solar, Listrik, Hybrid, dll.
+  transmission: string; // Manual atau Automatic
+  maxPassengers: number; // Maksimal jumlah penumpang
+  brand: {
+    id: number;
+    name: string;
+    slug: string;
+  };
+};
+
+export type MutationCarDetailType = {
+  id: number;
+  name: string;
+  // imageId: string;
+  imageId: string;
+  imageUrl: string;
+  brandId: number;
+  priceFullDay: number;
+  priceHalfDay?: number;
+
+  year: number; // Tahun mobil dibuat
   fuelType: string; // Bensin, Solar, Listrik, Hybrid, dll.
   transmission: string; // Manual atau Automatic
   maxPassengers: number; // Maksimal jumlah penumpang

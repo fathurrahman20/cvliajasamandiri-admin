@@ -1,7 +1,8 @@
 import { CarDetailType } from "@/types";
-// import EditCar from "./modal-add-edit-car";
-// import AddCar from "./modal-add-edit-car";
+import EditCar from "./modal-add-edit-car";
+import AddCar from "./modal-add-edit-car";
 import DeleteCar from "./dialog-delete-car";
+import { formatIdr } from "@/lib/utils";
 
 interface CarTableProps {
   data: CarDetailType[] | undefined;
@@ -10,7 +11,9 @@ interface CarTableProps {
 export default function CarTable({ data }: CarTableProps) {
   return (
     <div>
-      <div className="mt-4 sm:mt-0 sm:flex-none">{/* <AddCar /> */}</div>
+      <div className="mt-4 sm:mt-0 sm:flex-none">
+        <AddCar />
+      </div>
       <div className="mt-5 flow-root overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <table className="w-full text-left text-white">
@@ -74,6 +77,13 @@ export default function CarTable({ data }: CarTableProps) {
               </tr>
             </thead>
             <tbody>
+              {data?.length === 0 && (
+                <tr>
+                  <td colSpan={10} className="text-center py-4">
+                    Tidak ada data
+                  </td>
+                </tr>
+              )}
               {data?.map((item, index) => (
                 <tr key={item.id}>
                   <td className="relative py-4 pr-3 text-sm font-medium">
@@ -85,16 +95,16 @@ export default function CarTable({ data }: CarTableProps) {
                     {item.name}
                   </td>
                   <td className="hidden px-3 py-4 text-sm md:table-cell">
-                    {item.imageUrl}
+                    <img src={item.imageUrl} alt={item.name} className="w-20" />
                   </td>
                   <td className="hidden px-3 py-4 text-sm md:table-cell">
-                    {item.brandId}
+                    {item.brand.name}
                   </td>
                   <td className="hidden px-3 py-4 text-sm md:table-cell">
-                    {item.priceFullDay}
+                    {formatIdr(item.priceFullDay)}
                   </td>
                   <td className="hidden px-3 py-4 text-sm md:table-cell">
-                    {item.priceHalfDay}
+                    {item.priceHalfDay && formatIdr(item.priceHalfDay)}
                   </td>
                   <td className="hidden px-3 py-4 text-sm md:table-cell">
                     {item.year}
@@ -110,7 +120,7 @@ export default function CarTable({ data }: CarTableProps) {
                   </td>
                   <td className="relative py-4 pl-3 text-right text-sm font-medium">
                     <div className="flex flex-row gap-x-2">
-                      {/* <EditCar initialData={item} /> */}
+                      <EditCar initialData={item} />
                       <DeleteCar id={item.id} />
                     </div>
                   </td>

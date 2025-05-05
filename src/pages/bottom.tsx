@@ -4,7 +4,6 @@ import Layout from "@/layout";
 
 export default function BottomPage() {
   const { data } = useGetButtom();
-  console.log(`Data Buttom: ${data}`);
   return (
     <Layout page="Button">
       <div className="md:max-w-1/2 ">

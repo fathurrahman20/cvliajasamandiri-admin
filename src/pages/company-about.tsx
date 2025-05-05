@@ -4,7 +4,6 @@ import Layout from "@/layout";
 
 export default function AboutCompanyPage() {
   const { data } = useGetAboutCompany();
-  console.log(`Data Company is: ${data}`);
 
   return (
     <Layout page="About Company">

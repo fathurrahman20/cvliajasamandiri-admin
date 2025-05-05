@@ -15,8 +15,6 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL!,
 });
 
-console.log("api url nih: ", import.meta.env.VITE_API_URL);
-
 export default class APIClient<T> {
   endpoint: string;
 

@@ -10,11 +10,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { useDeleteOurService } from "@/hooks/useOurService";
+import { useDeleteCar } from "@/hooks/useCar";
 import { Trash2 } from "lucide-react";
 
 export default function DeleteRequirementNoDriver({ id }: { id: number }) {
-  const { mutate } = useDeleteOurService();
+  const { mutate } = useDeleteCar();
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -27,7 +27,7 @@ export default function DeleteRequirementNoDriver({ id }: { id: number }) {
         <AlertDialogHeader>
           <AlertDialogTitle>Apakah sudah yakin?</AlertDialogTitle>
           <AlertDialogDescription>
-            Ini akan menghapus permanent layanan berikut.
+            Ini akan menghapus permanent armada berikut.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
