@@ -12,12 +12,9 @@ interface Props {
 export default function DialogCarFormHeader({ initialData }: Props) {
   return (
     <DialogHeader>
-      <DialogTitle>
-        {initialData ? "Edit Our Service" : "Add Our Service"}
-      </DialogTitle>
+      <DialogTitle>{initialData ? "Edit Armada" : "Add Armada"}</DialogTitle>
       <DialogDescription>
-        {initialData ? "Edit " : "Add "} Our Service. Click save when you're
-        done.
+        {initialData ? "Edit " : "Add "} Armada. Click save when you're done.
       </DialogDescription>
     </DialogHeader>
   );

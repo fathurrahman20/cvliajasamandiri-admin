@@ -41,6 +41,13 @@ export default function OurServiceTable({ data }: OurServiceTableProps) {
               </tr>
             </thead>
             <tbody>
+              {data?.length === 0 && (
+                <tr>
+                  <td colSpan={3} className="text-center py-4">
+                    Tidak ada data
+                  </td>
+                </tr>
+              )}
               {data?.map((item, index) => (
                 <tr key={item.id}>
                   <td className="relative py-4 pr-3 text-sm font-medium">
