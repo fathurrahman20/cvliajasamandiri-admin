@@ -12,6 +12,7 @@ import RequirementPage from "@/pages/requirement";
 import SigninPage from "@/pages/signin";
 import { createBrowserRouter } from "react-router";
 import BrandPage from "@/pages/brand";
+import CarPage from "@/pages/car-page";
 
 const routerList = createBrowserRouter([
   {
@@ -103,6 +104,14 @@ const routerList = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <BrandPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/car",
+    element: (
+      <ProtectedRoute>
+        <CarPage />
       </ProtectedRoute>
     ),
   },

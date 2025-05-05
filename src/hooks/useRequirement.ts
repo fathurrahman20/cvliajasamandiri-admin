@@ -177,7 +177,7 @@ export const useDeleteRequirementNoDriver = () => {
 };
 /* END: Requirement No Driver */
 
-/* START: Requirement With Driver */
+/* START: Requirement Note */
 interface RequirementNoteRequest {
   id: number;
   description: string;
@@ -194,7 +194,7 @@ const apiClientRequirementNote = new APIClient<RequirementNoteDetailType>(
 // Get Requirement Detail with Driver
 export const useGetRequirementNote = () =>
   useQuery({
-    queryKey: ["requirement-with-driver", 1],
+    queryKey: ["requirement-note", 1],
     queryFn: () => {
       return apiClientRequirementNote.get(1, {
         headers: {
@@ -204,7 +204,7 @@ export const useGetRequirementNote = () =>
     },
   });
 
-// Update Requirement With Driver
+// Update Requirement Note
 const apiClientRequirementNoteUpdate = new APIClient<RequirementNoteResponse>(
   "/requirement-note"
 );
@@ -223,11 +223,11 @@ export const useUpdateRequirementNote = () => {
       });
     },
     onSuccess: () => {
-      toast.success("Updated requirement with driver successfully");
+      toast.success("Updated requirement note successfully");
     },
     onError: (error) => {
       toast.error(error.response?.data.message ?? "update failed");
     },
   });
 };
-/* END: Requirement With Driver */
+/* END: Requirement Note */

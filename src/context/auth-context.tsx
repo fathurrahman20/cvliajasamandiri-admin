@@ -16,12 +16,14 @@ export type User = {
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
+  isLoading: boolean;
   setUser: (user: User | null) => void;
 }
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getUser = new APIClient<User>("/auth/me");
   const getUserRefresh = new APIClient<User>("/auth/refresh");
@@ -29,30 +31,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const loadUser = async () => {
     try {
       const response = await getUser.getAll({
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
       setUser(response.data);
-      setIsAuthenticated(!!response.data);
+      setIsAuthenticated(true);
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        if (error.response?.status === 401) {
-          try {
-            await getUserRefresh.getAll({
-              headers: {
-                "Content-Type": "application/json",
-              },
-              withCredentials: true,
-            });
-            await loadUser();
-          } catch {
-            setUser(null);
-            setIsAuthenticated(false);
-          }
+      if (axios.isAxiosError(error) && error.response?.status === 401) {
+        try {
+          await getUserRefresh.getAll({
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          });
+          await loadUser(); // retry
+        } catch {
+          setUser(null);
+          setIsAuthenticated(false);
         }
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -62,7 +60,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, isAuthenticated }}>
+    <AuthContext.Provider value={{ user, setUser, isAuthenticated, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

@@ -75,3 +75,18 @@ export type BrandDetailType = {
   id: number;
   name: string;
 };
+
+export type CarDetailType = {
+  id: number;
+  name: string;
+  // imageId: string;
+  imageUrl: string;
+  brandId: number;
+  priceFullDay: number;
+  priceHalfDay?: number;
+
+  year: string; // Tahun mobil dibuat
+  fuelType: string; // Bensin, Solar, Listrik, Hybrid, dll.
+  transmission: string; // Manual atau Automatic
+  maxPassengers: number; // Maksimal jumlah penumpang
+};

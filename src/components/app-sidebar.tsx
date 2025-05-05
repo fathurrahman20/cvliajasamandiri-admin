@@ -82,8 +82,8 @@ const data = {
           url: "/brand",
         },
         {
-          title: "Mobil",
-          url: "#",
+          title: "Armada",
+          url: "/car",
         },
       ],
     },
